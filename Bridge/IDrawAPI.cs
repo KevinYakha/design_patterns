@@ -6,7 +6,7 @@ namespace Bridge
     {
         // Method to draw an object on the screen.
         // x and y specify the starting coordinates, and width and height define the dimensions of the drawable object.
-        void Draw(int x, int y, int width, int height);
+        void Draw(string shapeName, int x, int y, int width, int height);
     }
 }
 

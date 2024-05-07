@@ -4,6 +4,7 @@ namespace Bridge
     public class Rectangle : Shape
     {
         // Private member variables for the dimensions of the rectangle
+        private const string shapeName = "Rectangle";
         private int x;
         private int y;
         private int width;
@@ -22,7 +23,7 @@ namespace Bridge
         // Overridden method from abstract class Shape; it calls the Draw method of the drawing API
         public override void Draw()
         {
-            drawAPI.Draw(x, y, width, height);
+            drawAPI.Draw(shapeName, x, y, width, height);
         }
     }
 }

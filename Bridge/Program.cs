@@ -6,9 +6,11 @@ class Program
     {
         // Creating a rectangle object using a 'GreenRectangle' drawing method.
         Shape greenRectangle = new Rectangle(new GreenRectangle(), 100, 200, 32, 32);
+        Shape yellowRectangle = new Rectangle(new YellowRectangle(), 150, 250, 24, 24);
 
         // Drawing the rectangle.
         greenRectangle.Draw();
+        yellowRectangle.Draw();
 
         // Prevents the console window from closing immediately.
         Console.ReadKey();

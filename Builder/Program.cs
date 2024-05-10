@@ -4,14 +4,14 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Creates a wood house builder
-         // Initializes a civil engineer with the wood house builder
+        WoodHouseBuilder woodHouseBuilder = new WoodHouseBuilder(); // Creates a wood house builder
+        CivilEngineer civilEngineer = new CivilEngineer(woodHouseBuilder); // Initializes a civil engineer with the wood house builder
 
-       // Engineer constructs the house
-         // Gets the constructed house
+        civilEngineer.ConstructHouse(); // Engineer constructs the house
+        House woodenHouse = civilEngineer.GetHouse(); // Gets the constructed house
 
-         // Displays the house details
-        // Waits for a key press to close the console window
+        Console.WriteLine(woodenHouse.ToString()); // Displays the house details
+        Console.ReadKey(); // Waits for a key press to close the console window
     }
 }
 

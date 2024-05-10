@@ -19,6 +19,13 @@ class Program
             Console.WriteLine(c);
         }
 
+        IChannelIterator shuffleIterator = radio.CreateIterator();
+
+        while (shuffleIterator.HasNext())
+        {
+            Console.WriteLine(shuffleIterator.Shuffle());
+        }
+
         Console.ReadKey();
     }
 }

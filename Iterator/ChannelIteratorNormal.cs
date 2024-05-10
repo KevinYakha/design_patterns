@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography;
 using System.Threading.Channels;
 
 namespace Iterator
@@ -7,6 +8,7 @@ namespace Iterator
     {
         private List<Channel> channels;
         private int currentPosition = 0;
+        private List<int> shuffleList;
 
         public ChannelIteratorNormal(List<Channel> channels) //constru
         {
@@ -28,6 +30,29 @@ namespace Iterator
         public Channel Next()
         {
             return channels[currentPosition++]; 
+        }
+
+        public Channel Shuffle()
+        {
+            if (shuffleList == null)
+            {
+                shuffleList = new List<int>
+                {
+                    RandomNumberGenerator.GetInt32(channels.Count)
+                };
+
+                for (int i = 1; i < channels.Count; i++)
+                {
+                    int randomIndex = RandomNumberGenerator.GetInt32(channels.Count);
+                    while (shuffleList.Contains(randomIndex))
+                    {
+                        randomIndex = RandomNumberGenerator.GetInt32(channels.Count);
+                    }
+                    shuffleList.Add(randomIndex);
+                }
+            }
+
+            return channels[shuffleList[currentPosition++]];
         }
     }
 }

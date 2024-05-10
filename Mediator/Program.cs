@@ -17,6 +17,9 @@ class Program
         chatroom.AddUser(user4);
 
         user3.SendMessage("Hello, everyone!");  // ""
+
+        user2.SendPrivateMessage("Ssssh, don't tell anyone.", user1);
+
         Console.ReadKey();
     }
 }

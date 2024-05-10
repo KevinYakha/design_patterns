@@ -16,6 +16,11 @@ namespace Command
         {
             bankAccount.Deposit(amount);
         }
+
+        public void UnExecute()
+        {
+            bankAccount.Withdraw(amount);
+        }
     }
 }
 

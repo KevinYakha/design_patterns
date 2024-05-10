@@ -17,7 +17,19 @@ class Program
         cashMachineSC.ExecuteBankTransaction(command2);
         //cashMachineSC.ExecuteBankTransaction(command3);
 
+        command1.UnExecute();
+        command2.UnExecute();
+
         Console.ReadKey();
     }
 }
 //Bankaccount->IbankTrans->Depo->With->Cash
+
+/* 
+ * I initially overthought it and would have implemented a transaction history
+ * in the BankAccount class, but after a brief search online I stumbled upon
+ * an article explaining a way to implement undo functionality using the command pattern.
+ *  
+ * Source:
+ * https://www.codeproject.com/Articles/33384/Multilevel-Undo-and-Redo-Implementation-in-Cshar-2
+ */

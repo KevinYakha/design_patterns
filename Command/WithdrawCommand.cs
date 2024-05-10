@@ -5,6 +5,7 @@ namespace Command
     {
         private BankAccount bankAccount;
         private double amount;
+        private bool success = false;
 
         public WithdrawCommand(BankAccount bankAccount, double amount)
         {
@@ -14,7 +15,13 @@ namespace Command
 
         public void Execute()
         {
-            bankAccount.Withdraw(amount);
+            success = bankAccount.Withdraw(amount);
+        }
+
+        public void UnExecute()
+        {
+            if (success)
+                bankAccount.Deposit(amount);
         }
     }
 }
